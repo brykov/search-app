@@ -1,0 +1,11 @@
+%h1 Results
+
+%table.table.table-sm
+  %tr
+    - model.schema.keys.each do |attribute_name|
+      %th= attribute_name.split('_').map(&:capitalize).join(' ')
+  - result_set.each do |rec|
+    %tr
+      - model.schema.keys.each do |attribute_name|
+        - value = rec[attribute_name]
+        %td= value.is_a?(Array) ? value.join(', ') : value

@@ -1,0 +1,10 @@
+.home
+  %h1 Welcome to Search App
+  %p Ths application allows you to search for the following types of records:
+  %ul
+    %li
+      = link_to 'Users', url_for(:users)
+    %li
+      = link_to 'Organizations', url_for(:organizations)
+    %li
+      = link_to 'Tickets', url_for(:tickets)

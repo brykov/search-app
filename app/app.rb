@@ -1,4 +1,4 @@
-module Searchapp
+module SearchApp
   class App < Padrino::Application
     register ScssInitializer
     register Padrino::Mailer
@@ -62,4 +62,9 @@ module Searchapp
     #   end
     #
   end
+end
+
+[User, Organization, Ticket].each do |entity|
+  name = entity.name.downcase
+  entity.schema = JSON.parse(File.read('lib/schema/%s.json' % name)) rescue {}
 end

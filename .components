@@ -5,5 +5,5 @@
 :script: none
 :renderer: haml
 :stylesheet: scss
-:namespace: Searchapp
+:namespace: SearchApp
 :migration_format: number

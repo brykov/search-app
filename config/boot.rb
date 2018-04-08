@@ -55,6 +55,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  SearchApp::App.prerequisites << Padrino.root('app/models/*.rb')
 end
 
 Padrino.load!
