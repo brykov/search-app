@@ -9,10 +9,20 @@ main {
   margin: 5em auto;
 }
 
-table.search-from {
+table.table-custom {
   border-collapse: separate;
   border-spacing: 3px;
   th {
     padding-right: 3em;
+  }
+}
+
+table.table {
+  th {
+    white-space: nowrap;
+  }
+  td {
+    max-width: 10em;
+    overflow: scroll;
   }
 }

@@ -4,23 +4,18 @@ SearchApp::App.controllers do
     render :index
   end
 
-  get :organizations do
-    render :search_form, {}, {model: Organization, action: :organizations}
-  end
+  [Organization, User, Ticket].each do |model|
+    action = model.name.downcase.pluralize.to_sym
 
-  post :organizations do
-    criteria = params.select{ |k, v| Organization.schema.has_key?(k) and !v.empty? }
-    result_set = Organization.where(criteria)
-    render :search_results, {}, {result_set: result_set, model: Organization}
-    #results = Organizations.find_by()
-  end
+    get action do
+      render :search_form, {}, {model: model, action: action}
+    end
 
-  get :users do
-    render :search_form, {}, {model: User, action: :users}
-  end
-
-  get :tickets do
-    render :search_form, {}, {model: Ticket, action: :tickets}
+    post action do
+      criteria = ConvertParamsToCriteria.run(model, params)
+      result_set = model.where(criteria)
+      render :search_results, {}, {result_set: result_set, model: model, criteria: criteria}
+    end
   end
 
 end
