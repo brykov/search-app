@@ -1,5 +1,8 @@
 # Sample search application
 
+![Search App screenshot](https://github.com/brykov/search-app/raw/master/public/images/search-app.png)
+
+
 This is a [Padrino](http://padrinorb.com) based application that allows to search [MongoDB](http://mongodb.com) collections. Currently it supports the following collections:
 
 1. Users
