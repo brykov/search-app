@@ -14,7 +14,7 @@ SearchApp::App.controllers do
     post action do
       criteria = ConvertParamsToCriteria.run(model, params)
       result_set = model.where(criteria)
-      render :search_results, {}, {result_set: result_set, model: model, criteria: criteria}
+      render :search_results, {}, {result_set: result_set, model: model, criteria: criteria, action: action}
     end
   end
 

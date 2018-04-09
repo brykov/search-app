@@ -17,3 +17,6 @@
           %td= value.is_a?(Array) ? value.join(', ') : value
 - else
   .alert.alert-info No records found. Please try to adjust your search parameters.
+
+%p
+  = link_to 'Return to the search form', url_for(action)
