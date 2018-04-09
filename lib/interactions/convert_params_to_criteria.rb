@@ -8,6 +8,9 @@ class ConvertParamsToCriteria
         # cast value as True or False if corresponding spec is an array and contains True
         value = (value == 'true') if spec.is_a?(Array) and spec.include?(true)
 
+        # omit value that is not permitted by specification
+        next if spec.is_a?(Array) and !spec.include?(value)
+
         # cast value as integer if corresponding spec defines it as "number"
         value = value.to_i if spec == 'number'
 

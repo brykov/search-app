@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Ticket do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has enums defined' do
+    expect(Ticket.get_enums_list).to eq([:priority, :status, :type, :has_incidents, :via])
+  end
 end

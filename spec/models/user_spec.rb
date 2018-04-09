@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has enums defined' do
+    expect(User.get_enums_list).to eq([:verified, :suspended, :shared, :role, :locale, :active])
+  end
 end

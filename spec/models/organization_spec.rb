@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Organization do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has enums defined' do
+    expect(Organization.get_enums_list).to eq([:shared_tickets, :details])
+  end
 end

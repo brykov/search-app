@@ -15,3 +15,7 @@ Pre-requisites: Ruby 2.x, MongoDB 3.x
 3. Run ```MONGO_URI=mongodb://localhost:27017/searchapp_development bundle exec rake schema:generate``` to analyze and cache collection schemas
 4. Run Padrino server: ```MONGO_URI=mongodb://localhost:27017/searchapp_development bundle exec padrino start``` 
 5. Navigate to ```http://localhost:3000/``` in your browser
+
+## Tests
+
+Run ```bundle exec rake spec``` to execute application tests.
