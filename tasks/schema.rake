@@ -8,6 +8,8 @@ namespace :schema do
         function(key, stuff) { return {values: Array.unique(stuff)}; }
       }
 
+    all_schemas = {}
+
     [User, Organization, Ticket].each do |entity|
       schema = entity.map_reduce(map % entity.get_enums_list.to_json, reduce).out(inline: 1)
       schema = Hash[
@@ -20,7 +22,10 @@ namespace :schema do
         end.to_a
       ]
 
-      File.write('lib/schema/%s.json' % entity.name.downcase, schema.to_json)
+      all_schemas[entity.name] = schema
     end
+
+    Schema.delete_all
+    Schema.create!(all_schemas)
   end
 end

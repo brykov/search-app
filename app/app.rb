@@ -64,7 +64,7 @@ module SearchApp
   end
 end
 
+schema = Schema.first
 [User, Organization, Ticket].each do |entity|
-  name = entity.name.downcase
-  entity.schema = JSON.parse(File.read('lib/schema/%s.json' % name)) rescue {}
+  entity.schema = schema[entity.name] rescue {}
 end
